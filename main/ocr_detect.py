@@ -19,12 +19,12 @@ def ocr_detect(image_b64):
         # Decode the NumPy array to an image
         image_rgb = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     except Exception as e:
-        return json.dumps({"error": f"Failed to decode image data: {str(e)}", "status": "ERROR"}, indent=4)        
+        return f"error: Failed to decode image data: {str(e)}"        
 
     try:
         # Perform OCR on the image
         text = pytesseract.image_to_string(image_rgb)
-        return json.dumps({"status": "SUCCESS", "transcription": text}, indent=4)
+        return text
     except Exception as e:
-        return json.dumps({"error": f"Failed to perform OCR: {str(e)}", "status": "ERROR"}, indent=4)
+        return f"error: Failed to perform OCR: {str(e)}"
 
