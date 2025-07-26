@@ -8,9 +8,13 @@ import cv2
 from PIL import Image
 import pytesseract
 
-def ocr_detect(image_b64):
+def handle(event):
     try:
-        # Decode the base64 string
+	# Parse the incoming JSON string
+        data = json.loads(event)
+	# Extract the base64-encoded image data
+        image_b64 = data.get("image_b64")
+	# Decode the base64 string
         image_data = base64.b64decode(image_b64)
         
         # Convert the decoded data to a NumPy array
