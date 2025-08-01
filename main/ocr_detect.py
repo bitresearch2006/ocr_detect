@@ -8,12 +8,8 @@ import cv2
 from PIL import Image
 import pytesseract
 
-def handle(event):
+def main(image_b64):
     try:
-	# Parse the incoming JSON string
-        data = json.loads(event)
-	# Extract the base64-encoded image data
-        image_b64 = data.get("image_b64")
 	# Decode the base64 string
         image_data = base64.b64decode(image_b64)
         

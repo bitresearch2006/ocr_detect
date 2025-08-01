@@ -1,7 +1,7 @@
 import json
-from function import handler  # assuming your ocr_detect is in handler.py
+from function import ocr_detect  # assuming your ocr_detect is in ocr_detect.py
 
-def handle(event, context):
+def handle(event):
     try:
         body = json.loads(event.body)
         image_b64 = body.get("image_b64", "")
@@ -11,7 +11,7 @@ def handle(event, context):
                 "body": json.dumps({"error": "Missing image_b64"})
             }
 
-        result = handler.handle(image_b64)
+        result = ocr_detect.main(image_b64)
 
         return {
             "statusCode": 200,
