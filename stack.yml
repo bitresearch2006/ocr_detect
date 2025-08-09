@@ -9,3 +9,6 @@ functions:
     image: localhost:5000/ocr-detect:latest
     build_args:
       ADDITIONAL_PACKAGE: "tesseract-ocr"
+    environment:
+      DIAGNOSTICS: "true"
+      LOG_DIR: "/tmp/ocr_logs"
