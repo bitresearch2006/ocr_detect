@@ -1,2 +1,4 @@
 # ignore build directory
 build/
+# ignore json file which will be created by TestApp_Faas
+test/image.json
