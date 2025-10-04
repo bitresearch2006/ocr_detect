@@ -1,7 +1,0 @@
-flask
-waitress
-tox==3.*
-numpy
-opencv-python-headless
-Pillow
-pytesseract
